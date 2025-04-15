@@ -24,9 +24,19 @@
    - The algorithms used will be:
      1. Mean Shift
      2. DBSCAN
-     3. Gausian-Mixture Model
+     3. Gaussian-Mixture Model
    - If dimensionality reduction is needed, then random projection will likely be used.
 <br>    
+
+```mermaid
+graph TD
+Diamonds[Square Rect] --> split(train_test_split)
+split --> dtrain[diamond_train]
+split --> dtest[diamond_test]
+dtrain --> scan{DBSCAN}
+dtrain --> shift{MeanShift}
+dtrain --> gmm{GMM}
+```
 
 5. __Wrap-up__/__Conclusions__
 
