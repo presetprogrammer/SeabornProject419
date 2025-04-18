@@ -30,7 +30,7 @@
 
 ```mermaid
 graph TD
-Diamonds[Square Rect] --> split(train_test_split)
+Diamonds[Diamonds] --> split(train_test_split)
 split --> dtrain[diamond_train]
 split --> dtest[diamond_test]
 dtrain --> scan{DBSCAN}
