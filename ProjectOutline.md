@@ -22,10 +22,11 @@
 4. __Unsupervised Learning__  - James Heathcock
 
    - The algorithms used will be:
-     1. Mean Shift
+     1. OPTICS
      2. DBSCAN
      3. Gaussian-Mixture Model
-   - If dimensionality reduction is needed, then random projection will likely be used.
+     4. k-Means
+   - t-SNE is used for dimensionality reduction
 <br>    
 
 ```mermaid
@@ -33,9 +34,14 @@ graph TD
 Diamonds[Diamonds] --> split(train_test_split)
 split --> dtrain[diamond_train]
 split --> dtest[diamond_test]
-dtrain --> scan{DBSCAN}
-dtrain --> shift{MeanShift}
-dtrain --> gmm{GMM}
+dtrain -- fit --> scan{DBSCAN}
+dtrain -- fit --> shift{KMeans}
+dtrain -- fit --> gmm{GMM}
+dtrain -- fit --> optics{OPTICS}
+dtest -- predict --> gmm
+dtest -- predict --> optics
+dtest -- predict --> scan
+dtest -- predict --> shift
 ```
 
 5. __Wrap-up__/__Conclusions__
